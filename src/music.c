@@ -5,6 +5,7 @@
 
 #include <psp2/io/dirent.h>
 #include <psp2/io/fcntl.h>
+#include <psp2/io/stat.h>
 
 #include "sqlite3.h"
 #include "mp4utils.h"
@@ -210,7 +211,9 @@ static int add_music_int(sqlite3 *db, const char *dir, int added)
 		else {
 			int l = strlen(dinfo.d_name);
 			if (l > 4 && dinfo.d_name[0] != '.' &&
-				strcmp(dinfo.d_name + l - 4, ".mp3") == 0) {
+				strcmp(dinfo.d_name + l - 4, ".mp3") == 0 ||
+				strcmp(dinfo.d_name + l - 4, ".wav") == 0
+			) {
 
 				int c = sql_get_count(db, select_content_count_sql, new_path);
 				if (c == 0) {

@@ -8,7 +8,7 @@ project(MediaImporter)
 set(PROJECT_TITLE "Media Importer")
 set(TITLE_ID "MIMP00001")
 
-set(CMAKE_C_FLAGS "-Wl,-q -O3 -std=c99")
+set(CMAKE_C_FLAGS "-Wl,-q -O3")
 
 add_definitions(-DSQLITE_OS_OTHER=1 -DSQLITE_TEMP_STORE=3 -DSQLITE_THREADSAFE=0)
 
